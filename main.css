@@ -8,16 +8,18 @@ body {
 
 }
 
-/* img {
+img {
     width: 20px;
     height: 20px;
     object-fit: cover;
     margin-right: 10px;
-} */
+    vertical-align: middle;
+    
+}
 
 .icon {
-    width: 16px;
-  height: 16px;
+    width: 5px;
+  height: px;
   margin-left: 5px;
   vertical-align: middle;
 }
