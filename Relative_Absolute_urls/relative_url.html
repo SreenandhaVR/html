@@ -13,7 +13,30 @@
   <li><a href="images/DSC00675.JPG">SECOND SESSION</a></li>
   <li><a href="images/Gemni DevDive.JPG">WORKSHOP COLLAGE</a></li>
   </ul>
- 
+  <h2>Relative URLs</h2>
+ <p>
+  Relative URLs are used to link to resources that are located in the same directory or a subdirectory of the current page. They are specified relative to the location of the current page. For example, if you have an image file named "image.jpg" in the same directory as your HTML file, you can use a relative URL like this: <img src=" image.jpg" alt="My Image">. If the image is located in a subdirectory called "images", you would use: <img src="images/image2.JPG" alt="My Image">. Relative URLs are useful for maintaining links when moving files around within a website's directory structure. ../ is used to go back to the parent directory and .../ is used to go back to the grandparent directory. For example, if you have a file structure like this:
+  <ul>
+    <li>index.html</li>
+    <li>about.html</li>
+    <li>contact.html</li>
+    <li>images/
+      <ul>
+        <li>image1.jpg</li>
+        <li>image2.jpg</li>
+      </ul>
+    </li>
+  </ul>
+  <p>Then you can use relative URLs like this:</p>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="images/Gemini Devdive Workshop.png.jpg">Image 1</a></li>
+    <li><a href="images/DSC00757.JPG">Image 2</a></li>
+  </ul>
+
+ </p>
 
   </body>
   </html>
