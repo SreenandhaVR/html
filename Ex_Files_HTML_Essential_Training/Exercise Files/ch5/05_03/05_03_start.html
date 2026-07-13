@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch 5: Images</title>
+  <style>
+    body {
+      margin: 0; 
+      text-align: center;
+    }
+    .responsive {
+      width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- <img src="dogs-800x500.png" alt="Group of dogs running over the lawn"> -->
+<img srcset="dogs-400x250.png 400w, dogs-800x500.png 800w,dogs-1600x1000.png 1600w" sizes="(max-width: 600px) 400px, (max-width: 1000px) 600px, 1600px" src="dogs-400x250.png" alt="Group of dogs running over the lawn" class="responsive">
+
+<picture>
+  <img src="dogs-800x500.png" 
+       alt="Group of dogs running over the lawn">
+</picture>
+<source media="(max-width: 600px)" srcset="dogs-square-400.png,dogs-400x250.png">
+  <source media="(min-width: 601px)" srcset="dogs-800x500.png 2x">
+  <source media="(min-width: 1001px)" srcset="dogs-1600x1000.png">
+
+</body>
+</html>
