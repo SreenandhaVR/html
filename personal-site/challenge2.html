@@ -151,7 +151,140 @@ footer a{
 footer a:hover{
     text-decoration:underline;
 }
+ /* Stats Section */
 
+.stats{
+    background:white;
+    padding:60px 20px;
+    border-radius:15px;
+    margin:60px 0;
+}
+
+.stats h2{
+    text-align:center;
+    color:#4285F4;
+    margin-bottom:15px;
+}
+
+.stats p{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.stat-box{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.stat{
+    background:#f8f9fa;
+    width:250px;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.stat h1{
+    color:#4285F4;
+    font-size:48px;
+}
+
+.stat h3{
+    margin-top:10px;
+}
+
+/* Programs */
+
+.programs{
+    margin:70px 0;
+}
+
+.programs h2{
+    text-align:center;
+    color:#4285F4;
+    margin-bottom:40px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+    color:#EA4335;
+    margin-bottom:15px;
+}
+
+.card a{
+    display:inline-block;
+    margin-top:20px;
+    text-decoration:none;
+    color:#4285F4;
+    font-weight:bold;
+}
+
+/* Events */
+
+.events{
+    margin:70px 0;
+}
+
+.events h2{
+    text-align:center;
+    color:#4285F4;
+    margin-bottom:40px;
+}
+
+.event-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.event-card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,.1);
+}
+
+.event-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.event-content{
+    padding:25px;
+}
+
+.event-content h3{
+    color:#34A853;
+}
+
+.event-content a{
+    display:inline-block;
+    margin-top:15px;
+    color:#4285F4;
+    text-decoration:none;
+    font-weight:bold;
+}
 /* Mobile */
 
 @media(max-width:768px){
@@ -228,8 +361,92 @@ Visit GDG Community →
 </p>
 
 </div>
+<section class="stats">
+
+<h2>Backed by a Global Community</h2>
+
+<p>Google Developer Groups empower developers around the world to connect, learn and grow together.</p>
+
+<div class="stat-box">
+
+<div class="stat">
+<h1>2000+</h1>
+<h3>Community Groups</h3>
+</div>
+
+<div class="stat">
+<h1>1000+</h1>
+<h3>Industry Experts</h3>
+</div>
+
+<div class="stat">
+<h1>150+</h1>
+<h3>Countries</h3>
+</div>
+<section class="programs">
+
+<h2>Explore Google Programs</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Google Developer Groups</h3>
+<p>
+Connect, learn and grow alongside Google's technologies and developer communities.
+</p>
+
+<a href="#">Lead a GDG →</a>
+</div>
+
+<div class="card">
+<h3>GDG on Campus</h3>
+
+<p>
+Gain hands-on experience, build projects, improve your technical skills and kick-start your career.
+</p>
+
+<a href="#">Lead a GDG on Campus →</a>
+
+</div>
+
+<div class="card">
+
+<h3>Google Developer Experts</h3>
+
+<p>
+Become recognized for your expertise and share your knowledge with developers worldwide.
+</p>
+
+<a href="#">Learn More →</a>
+
+</div>
+
+<div class="card">
+
+<h3>Google Accelerators</h3>
+
+<p>
+Fuel innovation using Google's latest technologies and solve real-world challenges.
+</p>
+
+<a href="#">Learn More →</a>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+</section>
 
 <img src="../images/DSC00661.JPG" alt="Workshop">
+<p style="margin-top:15px;">
+ Gemini DevDive Workshop attendees engaging in hands-on coding sessions and collaborative learning.
+</p>
+<img src="../images/DSC00675.JPG" alt="Workshop">
+<img src="../images/DSC00757.JPG" alt="Workshop">
 
 </section>
 
