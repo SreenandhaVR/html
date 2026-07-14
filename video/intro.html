@@ -3,54 +3,180 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video</title>
+  <title>HTML Video Element</title>
 </head>
+
 <body>
-  <h1>Introduction of Video and Audio Elements</h1>
-  <p>Introduction of audio and video elements was a big step forward in the development of  HTML.The ability to easily embed video and audio into web pages was a game-changer and replaced older plugin based solutions like Flash and Silverlight,helping to drive the growth of the streaming media online with platforms like YouTube and SoundCloud as some of the early adopters.</p>
-  <h1>
-    Supported Video Formats
-  </h1>
+
+  <h1>Introduction to Video and Audio Elements</h1>
+
+  <p>
+    The introduction of the <strong>&lt;video&gt;</strong> and
+    <strong>&lt;audio&gt;</strong> elements was a major milestone in HTML5.
+    These elements made it easy to embed multimedia directly into web pages
+    without relying on external plugins like Flash or Silverlight. They helped
+    transform the web by enabling modern streaming platforms such as YouTube,
+    Vimeo, and SoundCloud.
+  </p>
+
+  <hr>
+
+  <h2>Supported Video Formats</h2>
+
   <ul>
-    <li>MP4-Supported across all major browers and offers good compression and quality.</li>
-    <li>WebM is a open source format that delivers high quality video and is optimized for web use.</li>
-    <li>Ogg is an old open source format less commonly used and that is still a viable option in some cases.</li>
-    <h3>How to Include a Video (Syntax)</h3>
-    <pre>
+    <li><strong>MP4</strong> – Supported by all major browsers and provides excellent quality with efficient compression.</li>
+
+    <li><strong>WebM</strong> – An open-source format optimized for the web that delivers high-quality video.</li>
+
+    <li><strong>Ogg</strong> – An older open-source video format that is less commonly used today but is still supported by some browsers.</li>
+  </ul>
+
+  <hr>
+
+  <h2>How to Include a Video</h2>
+
+  <pre>
 <code>
-  &lt;video src="video.mp4"&gt;
-  &lt;p&gt;Your browser does not support the HTML video.
-  Here is a &lt;a href="custmize-vs-code.mp4"&gt;link to the video&lt;/a&gt;
-  &lt;p&gt;
-  &lt;/video&gt;
+&lt;video controls&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+
+    Your browser does not support HTML5 video.
+    Here is a
+    &lt;a href="video.mp4"&gt;link to the video&lt;/a&gt;.
+&lt;/video&gt;
 </code>
-    </pre>
- <!-- <video width="700" controls autoplay>
-    <source src="wedding.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video> -->
+  </pre>
 
-<video src="paris.mp4" controls  loop muted width="640" height="360" poster="paris_pic.jpg">
-  <p>Your browser doesn't support HTML video.Here is a <a href="paris.mp4">link to thE video file</a></p>
+  <h2>Example</h2>
 
-</video>
-<h1>
-  Captions,Subtitles and Chapters
-</h1>
-<p>captions are transcripts of the audio content.They are necessary for people with learning impairments and helpful for various situations like a noisy coffee shop or uite situations like libraries where playing audio would distrub others.Subtitles are translated versions of the audio content.Chapters are markers that divide the content into sections allowing users to navigate through different parts of the media.</p>
-<ul>
-  <li>
-  <pre>&lttrack&gt;</pre> Element is also a void element and it is nested within the video tag</li>
-  <li>Use the source attribute to specify the file location.Track files also uses the WebVTT format</li>
-</ul>
-<h2>Example of Track</h2>
-<video src="customize-vs-code.mp4"
-        controls loop muted
-        poster="customize-vs-code.png"
-        width="640" height="360">
-        <track src="customize-vs-code.vtt" default>
-        <p>Your browser doesn't support HTML video.Here is a <a href="customize-vs-code.mp4">Link to the video file</a>instead</p>
-      </video>
-      
+  <video
+      src="paris.mp4"
+      controls
+      loop
+      muted
+      width="640"
+      height="360"
+      poster="paris_pic.jpg">
+
+      <p>
+        Your browser doesn't support HTML5 video.
+        Here is a
+        <a href="paris.mp4">link to the video file</a>.
+      </p>
+
+  </video>
+
+  <hr>
+
+  <h1>Captions, Subtitles, and Chapters</h1>
+
+  <p>
+    HTML allows videos to include captions, subtitles, and chapter markers using
+    the <strong>&lt;track&gt;</strong> element.
+  </p>
+
+  <ul>
+    <li>
+      <strong>Captions</strong> display spoken dialogue and important sounds,
+      making videos accessible to people who are deaf or hard of hearing.
+    </li>
+
+    <li>
+      <strong>Subtitles</strong> translate spoken dialogue into another language.
+    </li>
+
+    <li>
+      <strong>Chapters</strong> divide a video into sections so users can easily
+      navigate to specific parts.
+    </li>
+  </ul>
+
+  <hr>
+
+  <h2>The &lt;track&gt; Element</h2>
+
+  <p>
+    The <strong>&lt;track&gt;</strong> element is a void element placed inside
+    the <strong>&lt;video&gt;</strong> element. It is used to add captions,
+    subtitles, descriptions, or chapter information to a video.
+  </p>
+
+  <ul>
+    <li>Use the <strong>src</strong> attribute to specify the location of the track file.</li>
+
+    <li>Track files use the <strong>WebVTT (.vtt)</strong> format.</li>
+
+    <li>The <strong>default</strong> attribute specifies the track that should be enabled automatically.</li>
+  </ul>
+
+  <hr>
+
+  <h2>Example Using the &lt;track&gt; Element</h2>
+
+  <video
+      src="customize-vs-code.mp4"
+      controls
+      loop
+      muted
+      poster="customize-vs-code.png"
+      width="640"
+      height="360">
+
+      <track
+          src="customize-vs-code.vtt"
+          kind="captions"
+          srclang="en"
+          label="English"
+          default>
+
+      <p>
+        Your browser doesn't support HTML5 video.
+        Here is a
+        <a href="customize-vs-code.mp4">link to the video file</a>.
+      </p>
+
+  </video>
+
+  <hr>
+
+  <h2>The <code>kind</code> Attribute</h2>
+
+  <p>
+    The <strong>kind</strong> attribute specifies the type of text track being
+    added to the video.
+  </p>
+
+  <table border="1" cellpadding="10">
+    <tr>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+
+    <tr>
+      <td>captions</td>
+      <td>Displays captions for spoken dialogue and sound effects.</td>
+    </tr>
+
+    <tr>
+      <td>subtitles</td>
+      <td>Provides translated dialogue for viewers.</td>
+    </tr>
+
+    <tr>
+      <td>chapters</td>
+      <td>Defines navigation points within the video.</td>
+    </tr>
+
+    <tr>
+      <td>descriptions</td>
+      <td>Provides text descriptions for visually impaired users.</td>
+    </tr>
+
+    <tr>
+      <td>metadata</td>
+      <td>Contains additional information used by scripts.</td>
+    </tr>
+  </table>
+
 </body>
 </html>
