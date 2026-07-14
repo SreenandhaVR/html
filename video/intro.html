@@ -38,5 +38,18 @@
   Captions,Subtitles and Chapters
 </h1>
 <p>captions are transcripts of the audio content.They are necessary for people with learning impairments and helpful for various situations like a noisy coffee shop or uite situations like libraries where playing audio would distrub others.Subtitles are translated versions of the audio content.Chapters are markers that divide the content into sections allowing users to navigate through different parts of the media.</p>
+<ul>
+  <li>
+  <pre>&lttrack&gt;</pre> Element is also a void element and it is nested within the video tag</li>
+  <li>Use the source attribute to specify the file location.Track files also uses the WebVTT format</li>
+</ul>
+<h2>Example of Track</h2>
+<video src="customize-vs-code.mp4"
+        controls loop muted
+        poster="customize-vs-code.png"
+        width="640" height="360">
+        <track src="customize-vs-code.vtt">
+        <p>Your browser doesn't support HTML video.</p>
+      </video>
 </body>
 </html>
