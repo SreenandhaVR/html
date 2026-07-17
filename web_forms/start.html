@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Forms</title>
+</head>
+
+<body>
+
+  <h1>Web Forms</h1>
+
+  <p>
+    Web forms are one of the main ways users interact with websites.
+    When we fill out a quiz, sign up for a newsletter, or enter payment
+    details to make an online purchase, we are using forms to input data.
+  </p>
+
+  <p>
+    Forms can be basic and contain a couple fields like a name or email
+    for newsletter subscriptions. They can also be complex, such as
+    online shopping forms that require a mailing address, credit card
+    number, billing address, and delivery address.
+  </p>
+
+  <p>
+    A form's complexity depends on how much information we need to be
+    collected.
+  </p>
+
+  <p>
+    While most forms require processing by a web server through
+    server-side programming, the user interface elements—the parts that
+    we see in the browser, like text fields and submit buttons—are
+    created with HTML.
+  </p>
+
+  <p>
+    On web development teams, front-end developers typically create the
+    interface elements, while back-end developers manage the functionality
+    and the data processing.
+  </p>
+
+  <p>
+    There are also many services for creating forms such as Typeform or
+    Google Forms.
+  </p>
+
+  <hr>
+
+  <h2>Form Controls</h2>
+
+  <p>
+    Elements that allow users to input data and interact with web forms
+    (such as text fields, checkboxes, and buttons) are called form
+    controls. Each form control has a specific role and purpose.
+  </p>
+
+  <hr>
+
+  <h2>Form Syntax</h2>
+
+  <p>
+    Start with <code>&lt;form&gt;</code> tag and end with
+    <code>&lt;/form&gt;</code> tag and have two attributes:
+  </p>
+
+  <ul>
+    <li>
+      <strong>action</strong> - where data is sent for processing;
+      must be a relative or absolute URL.
+    </li>
+
+    <li>
+      <strong>method</strong> - how the form data is sent;
+      GET or POST.
+    </li>
+  </ul>
+
+  <pre>
+&lt;form action="" method=""&gt;
+
+&lt;/form&gt;
+  </pre>
+
+  <hr>
+
+  <h2>GET vs. POST</h2>
+
+  <p>
+    <strong>GET</strong> sends data as part of URL.
+    Ideal for bookmarking and sharing.
+  </p>
+
+  <p>
+    Example:
+    <br>
+    https://store.com/search?q=black+pants
+  </p>
+
+  <p>
+    <strong>POST</strong> sends data in HTTP request body and keeps it
+    hidden. It is more secure and ideal for sensitive information and
+    large amounts of data.
+  </p>
+
+</body>
+</html>
