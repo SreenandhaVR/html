@@ -110,47 +110,78 @@
     </p>
     <p>Include the name attribute to add a refernece to the data once the form is submitted</p>
     <p>Example</p>
-    <code><pre>&lt;form action=""" method=""&gt;
-&lt;input name="email"&gt;
-&lt;input name="password"&gt;
-&lt;/form&gt;</pre>
+    <code><pre>
+  &lt;form action=""" method=""&gt;
+  &lt;input name="email"&gt;
+  &lt;input name="password"&gt;
+  &lt;/form&gt;
+</pre>
 </code>
 <h2>The <code>&lt;label&gt;</code>Element</h2>
 <p>Used to create a caption for a form control</p>
 <p>Example</p>
-<code><pre>&lt;form action=""" method=""&gt;
-&lt;label&gt;Email&lt;/label&gt;
-&lt;input name="email"&gt;
-&lt;label&gt;Password&lt;/label&gt;
-&lt;input name="password"&gt;
-&lt;/form&gt;</pre>
+<code>
+  <pre>
+  &lt;form action=""" method=""&gt;
+  &lt;label&gt;Email&lt;/label&gt;
+  &lt;input name="email"&gt;
+  &lt;label&gt;Password&lt;/label&gt;
+  &lt;input name="password"&gt;
+  &lt;/form&gt;
+</pre>
 </code>
 <h2>The <code>&lt;button&gt;</code>Element</h2>
 <p>Sends the form data to the server for processing</p>
 <p>The button text is added between the tags</p>
 <p>Example</p>
-<code><pre>&lt;form action=""" method=""&gt;
-&lt;label&gt;Email&lt;/label&gt;
-&lt;input name="email"&gt;
-&lt;label&gt;Password&lt;/label&gt;
-&lt;input name="password"&gt;
-&lt;button&gt;Create account&lt;/button&gt;
-&lt;/form&gt;</pre>
-</code>
-<h2>Structuring Forms</h2>
-<p>
-<code>
+  <code><pre>
+  &lt;form action=""" method=""&gt;
+  &lt;label&gt;Email&lt;/label&gt;
+  &lt;input name="email"&gt;
+  &lt;label&gt;Password&lt;/label&gt;
+  &lt;input name="password"&gt;
+  &lt;button&gt;Create account&lt;/button&gt;
+  &lt;/form&gt;</pre>
+  </code>
+  <h2>Structuring Forms</h2>
+  <p>
+  <code>
+  <pre>
   &lt;form action="" method=""&gt;
   &lt;h2>Create an account&lt;/h2g&gt;
-   &lt;div &gt;
-     &lt;label &gt;Email&lt;/label&gt;
-   &lt;/div&gt;
-   &lt;div&gt;
-     &lt;label&gt;Password&lt;/label&gt;
-   &lt;/div&gt;
-   &lt;button&gt;Create account&lt;/button&gt;
-   &lt;/form&gt;
-</code>
+  &lt;div&gt;
+  &lt;label &gt;Email&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+  &lt;label&gt;Password&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;button&gt;Create account&lt;/button&gt;
+  &lt;/form&gt;
+  </pre>
+  </code>
+  <p>Forms also have specific structural elements that can be used to add additional organization.</p>
+  <p>The fieldset element groups related form controls together.
+  </p>
+  <p>The legend element provides a caption or title for the fieldset</p>
+  <p>
+  <code>
+  <pre>
+  &lt;form action="" method=""&gt;
+  &lt;fieldset&gt;
+  &lt;legend&gt;Create an account&lt;legend&gt;
+  &lt;div&gt;
+  &lt;label&gt;Email&lt;/label&gt; &lt;input name="email"&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+  &lt;label&gt;Password&lt;/label&gt;
+  &lt;input name="password"&gt;
+  &lt;/div&gt;
+  &lt;button&gt;Create account&lt;/button&gt;
+  &lt;/fieldset&gt;
+    </pre>
+  </code>
+</p>
+
 </p>
 </body>
 </html>
