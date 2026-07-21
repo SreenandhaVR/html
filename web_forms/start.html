@@ -1,14 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web Forms</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Forms</title>
+<style>
+  :root{
+    --bg:#fafafa;
+    --text:#1f1f1f;
+    --muted:#6b6b6b;
+    --border:#e4e4e4;
+    --accent:#2b2b2b;
+    --code-bg:#f4f4f4;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    padding:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height:1.65;
+  }
+  main{
+    max-width:720px;
+    margin:0 auto;
+    padding:64px 24px 120px;
+  }
+  h1{
+    font-size:2rem;
+    font-weight:700;
+    margin:0 0 8px;
+    letter-spacing:-0.02em;
+  }
+  h1 + p.subtitle{
+    color:var(--muted);
+    margin-top:0;
+    margin-bottom:48px;
+    font-size:0.95rem;
+  }
+  h2{
+    font-size:1.15rem;
+    font-weight:600;
+    margin:48px 0 12px;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--border);
+  }
+  h3{
+    font-size:1rem;
+    font-weight:600;
+    margin:28px 0 8px;
+    color:var(--accent);
+  }
+  p{
+    margin:0 0 16px;
+    font-size:0.98rem;
+  }
+  ul{
+    margin:0 0 16px;
+    padding-left:20px;
+  }
+  li{
+    margin-bottom:6px;
+    font-size:0.98rem;
+  }
+  code{
+    font-family:"SFMono-Regular", Menlo, Consolas, monospace;
+    font-size:0.85em;
+    background:var(--code-bg);
+    padding:2px 5px;
+    border-radius:4px;
+  }
+  pre{
+    background:var(--code-bg);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:16px 18px;
+    overflow-x:auto;
+    margin:0 0 20px;
+  }
+  pre code{
+    background:none;
+    padding:0;
+    font-size:0.85rem;
+    line-height:1.6;
+    white-space:pre;
+  }
+  hr{
+    border:none;
+    border-top:1px solid var(--border);
+    margin:40px 0;
+  }
+  strong{
+    font-weight:600;
+  }
+  .note{
+    font-size:0.85rem;
+    color:var(--muted);
+    margin-top:-8px;
+    margin-bottom:16px;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin-bottom:20px;
+    font-size:0.92rem;
+  }
+  th, td{
+    text-align:left;
+    padding:8px 10px;
+    border-bottom:1px solid var(--border);
+  }
+  th{
+    color:var(--muted);
+    font-weight:600;
+  }
+</style>
 </head>
-
 <body>
+<main>
 
   <h1>Web Forms</h1>
+  <p class="subtitle">Notes on HTML forms — controls, syntax, and input types</p>
 
   <p>
     Web forms are one of the main ways users interact with websites.
@@ -17,239 +130,207 @@
   </p>
 
   <p>
-    Forms can be basic and contain a couple fields like a name or email
-    for newsletter subscriptions. They can also be complex, such as
-    online shopping forms that require a mailing address, credit card
+    Forms can be basic and contain a couple of fields, like a name or
+    email for a newsletter subscription. They can also be complex, such
+    as online shopping forms that require a mailing address, credit card
     number, billing address, and delivery address.
   </p>
 
   <p>
-    A form's complexity depends on how much information we need to be
+    A form's complexity depends on how much information needs to be
     collected.
   </p>
 
   <p>
     While most forms require processing by a web server through
-    server-side programming, the user interface elements—the parts that
-    we see in the browser, like text fields and submit buttons—are
+    server-side programming, the user interface elements — the parts we
+    see in the browser, like text fields and submit buttons — are
     created with HTML.
   </p>
 
   <p>
     On web development teams, front-end developers typically create the
-    interface elements, while back-end developers manage the functionality
-    and the data processing.
+    interface elements, while back-end developers manage the
+    functionality and data processing.
   </p>
 
   <p>
-    There are also many services for creating forms such as Typeform or
+    There are also many services for creating forms, such as Typeform or
     Google Forms.
   </p>
 
-  <hr>
-
   <h2>Form Controls</h2>
-
   <p>
     Elements that allow users to input data and interact with web forms
     (such as text fields, checkboxes, and buttons) are called form
     controls. Each form control has a specific role and purpose.
   </p>
 
-  <hr>
-
   <h2>Form Syntax</h2>
-
   <p>
-    Start with <code>&lt;form&gt;</code> tag and end with
-    <code>&lt;/form&gt;</code> tag and have two attributes:
+    Start with the <code>&lt;form&gt;</code> tag and end with the
+    <code>&lt;/form&gt;</code> tag. A form has two key attributes:
   </p>
-
   <ul>
-    <li>
-      <strong>action</strong> - where data is sent for processing;
-      must be a relative or absolute URL.
-    </li>
-
-    <li>
-      <strong>method</strong> - how the form data is sent;
-      GET or POST.
-    </li>
+    <li><strong>action</strong> — where the data is sent for processing; must be a relative or absolute URL.</li>
+    <li><strong>method</strong> — how the form data is sent; <code>GET</code> or <code>POST</code>.</li>
   </ul>
+  <pre><code>&lt;form action="" method=""&gt;
 
-  <pre>
-&lt;form action="" method=""&gt;
-
-&lt;/form&gt;
-  </pre>
-
-  <hr>
+&lt;/form&gt;</code></pre>
 
   <h2>GET vs. POST</h2>
+  <p><strong>GET</strong> sends data as part of the URL. Ideal for bookmarking and sharing.</p>
+  <p class="note">Example: https://store.com/search?q=black+pants</p>
 
   <p>
-    <strong>GET</strong> sends data as part of URL.
-    Ideal for bookmarking and sharing.
-  </p>
-
-  <p>
-    Example:
-    <br>
-    https://store.com/search?q=black+pants
-  </p>
-
-  <p>
-    <strong>POST</strong> sends data in HTTP request body and keeps it
-    hidden. It is more secure and ideal for sensitive information and
+    <strong>POST</strong> sends data in the HTTP request body and keeps
+    it hidden. It is more secure and ideal for sensitive information and
     large amounts of data.
   </p>
-    <h2>The <code>&lt;input&gt;</code>Element</h2>
 
-    <p>
-      The <code>&lt;input&gt;</code> element is used for different types of data.
-    </p>
-    <p>Include the name attribute to add a refernece to the data once the form is submitted</p>
-    <p>Example</p>
-    <code><pre>
-  &lt;form action=""" method=""&gt;
+  <h2>The &lt;input&gt; Element</h2>
+  <p>The <code>&lt;input&gt;</code> element is used for different types of data.</p>
+  <p>Include the <code>name</code> attribute to add a reference to the data once the form is submitted.</p>
+  <pre><code>&lt;form action="" method=""&gt;
   &lt;input name="email"&gt;
   &lt;input name="password"&gt;
-  &lt;/form&gt;
-</pre>
-</code>
-<h2>The <code>&lt;label&gt;</code>Element</h2>
-<p>Used to create a caption for a form control</p>
-<p>Example</p>
-<code>
-  <pre>
-  &lt;form action=""" method=""&gt;
+&lt;/form&gt;</code></pre>
+
+  <h2>The &lt;label&gt; Element</h2>
+  <p>Used to create a caption for a form control.</p>
+  <pre><code>&lt;form action="" method=""&gt;
   &lt;label&gt;Email&lt;/label&gt;
   &lt;input name="email"&gt;
   &lt;label&gt;Password&lt;/label&gt;
   &lt;input name="password"&gt;
-  &lt;/form&gt;
-</pre>
-</code>
-<h2>The <code>&lt;button&gt;</code>Element</h2>
-<p>Sends the form data to the server for processing</p>
-<p>The button text is added between the tags</p>
-<p>Example</p>
-  <code><pre>
-  &lt;form action=""" method=""&gt;
+&lt;/form&gt;</code></pre>
+
+  <h2>The &lt;button&gt; Element</h2>
+  <p>Sends the form data to the server for processing. The button text is added between the tags.</p>
+  <pre><code>&lt;form action="" method=""&gt;
   &lt;label&gt;Email&lt;/label&gt;
   &lt;input name="email"&gt;
   &lt;label&gt;Password&lt;/label&gt;
   &lt;input name="password"&gt;
   &lt;button&gt;Create account&lt;/button&gt;
-  &lt;/form&gt;</pre>
-  </code>
+&lt;/form&gt;</code></pre>
+
   <h2>Structuring Forms</h2>
-  <p>
-  <code>
-  <pre>
-  &lt;form action="" method=""&gt;
-  &lt;h2>Create an account&lt;/h2g&gt;
-  &lt;div&gt;
-  &lt;label &gt;Email&lt;/label&gt;
-  &lt;/div&gt;
-  &lt;div&gt;
-  &lt;label&gt;Password&lt;/label&gt;
-  &lt;/div&gt;
-  &lt;button&gt;Create account&lt;/button&gt;
-  &lt;/form&gt;
-  </pre>
-  </code>
-  <p>Forms also have specific structural elements that can be used to add additional organization.</p>
-  <p>The fieldset element groups related form controls together.
-  </p>
-  <p>The legend element provides a caption or title for the fieldset</p>
-  <p>
-  <code>
-  <pre>
-  &lt;form action="" method=""&gt;
-  &lt;fieldset&gt;
-  &lt;legend&gt;Create an account&lt;legend&gt;
-  &lt;div&gt;
-  &lt;label&gt;Email&lt;/label&gt; &lt;input name="email"&gt;
-  &lt;/div&gt;
-  &lt;div&gt;
-  &lt;label&gt;Password&lt;/label&gt;
-  &lt;input name="password"&gt;
-  &lt;/div&gt;
-  &lt;button&gt;Create account&lt;/button&gt;
-  &lt;/fieldset&gt;
-    </pre>
-  </code>
-</p>
-Implicit <code>&lt;label&gt; Association</code>
-</p>
-<p>
-  <code>
-    <pre>
-      &lt;form action="" method=""&gt;
-      &lt;label&gt;Email&lt;/label&gt; &lt;input name="email"&gt;
-      &lt;label&gt;Password&lt;/label&gt;
-      &lt;input name="password"&gt;
-      &lt;button&gt;Create account&lt;/button&gt;
-      &lt;/form&gt;
-    </pre>
-  </code>
-</p>
-Explicit <code>&lt;label&gt; Association</code>
-<p>
-<code><pre>
-  &lt;form action="" method=""&gt;
+  <pre><code>&lt;form action="" method=""&gt;
   &lt;h2&gt;Create an account&lt;/h2&gt;
   &lt;div&gt;
-  &lt;label&gt;Email&lt;/label&gt; &lt;input id="email"&gt;
-  &lt;label&gt;Password&lt;/label&gt;
-  &lt;input name="password"&gt;
+    &lt;label&gt;Email&lt;/label&gt;
   &lt;/div&gt;
   &lt;div&gt;
-  &lt;button&gt;Create account&lt;/button&gt;
+    &lt;label&gt;Password&lt;/label&gt;
   &lt;/div&gt;
-  &lt;/form&gt;
-</code>
-</p>
-<h2>Input Types</h2>
-<p>
-  Input elements are an important part of creating forms since they can handle different types of data.By adding the type attribute,we can specify each input's data type,which determines how the input functions.If a type attribute is not specified,the default type is text,which is a sinle line text field.
-</p>
-<p>
-  This would be appropriate to use for something like a name or username
-</p>
-<p>The email data type create a single line text field,but it's used for inputs that are specifically for email addresses.Unlike the text type,which accepts any characters,the email type includes built in form validation.It doesn't verify that the email address actually exists</p>
-<p>Format must match name@domain or name@domain.tld</p>
-<h2>TLD:top-level domain</h2>
-<p>TLD: is the last part of the domain name.Examples of TLDs are com,net,org,edu,gov etc</p>
-<h2>
-  Password Input
-</h2>
-<p>For password inputs,use the password type.</p>
-<p>It also looks like a single line text field,but the value is obscured as we begin typing to provide some security.The characters will be displayed as an asterisk or a dot,depending on the browser and operating system.</p>
-<h2>Submit Type</h2>
-<p>
- We can use the input tag as a submit button by setting its type attribute to submit. type="submit"- Displays as a button and default button text is "submit"
-</p>
-<p>Input Elements are an important part of creating forms since they can handle different types of data.By adding type attribute we can specify each input's data type,which determines how the input functions.If a type attribute is not specified, the default type is text,which is a single line text field.</p>
-<pre><code>
-  &lt;input type="text" name="name"&gt;
-  &lt;input type="text" name="username"&gt; 
-  &lt;
-</code></pre>
-<p>The email data type creates a single line text field,but it is used for inputs that are specifically for email addresses.Unlike the text type,which accepts any characters,the email type includes built in form validation.It doesn't verify that the email address actually exists.It does checks that the format matches name@domain or name@domain.tld</p>
-<p>TLD:Top level domain</p>
-<ul>
-  <li>www.website.com</li>
-  <li>www.website.org</li>
-  <li>www.website.edu</li>
-</ul>
-<p>
-  For password inputs use the password type.It also looks like a single line text field,but the value is obscured as we begin typing to provide some security.The characters will be displayed as an asterisk or a dot,depending on the browser and operating system.Characters are displayed as an asterisk or a dot,depending on the browser and operating system.
-</p>
-<pre><code>
+  &lt;button&gt;Create account&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+  <p>Forms also have specific structural elements that add additional organization:</p>
+  <ul>
+    <li><strong>fieldset</strong> — groups related form controls together.</li>
+    <li><strong>legend</strong> — provides a caption or title for the fieldset.</li>
+  </ul>
+  <pre><code>&lt;form action="" method=""&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Create an account&lt;/legend&gt;
+    &lt;div&gt;
+      &lt;label&gt;Email&lt;/label&gt;
+      &lt;input name="email"&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;label&gt;Password&lt;/label&gt;
+      &lt;input name="password"&gt;
+    &lt;/div&gt;
+    &lt;button&gt;Create account&lt;/button&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+
+  <h3>Implicit &lt;label&gt; Association</h3>
+  <pre><code>&lt;form action="" method=""&gt;
+  &lt;label&gt;Email
+    &lt;input name="email"&gt;
+  &lt;/label&gt;
+  &lt;label&gt;Password
+    &lt;input name="password"&gt;
+  &lt;/label&gt;
+  &lt;button&gt;Create account&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+  <p class="note">The input is nested inside the label — no <code>id</code>/<code>for</code> pairing needed.</p>
+
+  <h3>Explicit &lt;label&gt; Association</h3>
+  <pre><code>&lt;form action="" method=""&gt;
+  &lt;h2&gt;Create an account&lt;/h2&gt;
+  &lt;div&gt;
+    &lt;label for="email"&gt;Email&lt;/label&gt;
+    &lt;input id="email" name="email"&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for="password"&gt;Password&lt;/label&gt;
+    &lt;input id="password" name="password"&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;button&gt;Create account&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/form&gt;</code></pre>
+  <p class="note">The <code>for</code> attribute on the label matches the <code>id</code> on the input.</p>
+
+  <h2>Input Types</h2>
+  <p>
+    Input elements handle different types of data. Adding the
+    <code>type</code> attribute specifies each input's data type, which
+    determines how the input functions. If no <code>type</code> is
+    specified, the default is <code>text</code> — a single-line text
+    field.
+  </p>
+  <p>This is appropriate for something like a name or username.</p>
+  <pre><code>&lt;input type="text" name="name"&gt;
+&lt;input type="text" name="username"&gt;</code></pre>
+
+  <h3>Email Type</h3>
+  <p>
+    Creates a single-line text field used specifically for email
+    addresses. Unlike <code>text</code>, which accepts any characters,
+    <code>email</code> includes built-in form validation. It checks
+    that the format matches <code>name@domain</code> or
+    <code>name@domain.tld</code> — it does not verify that the address
+    actually exists.
+  </p>
+
+  <h3>TLD (Top-Level Domain)</h3>
+  <p>The last part of a domain name. Examples: <code>.com</code>, <code>.net</code>, <code>.org</code>, <code>.edu</code>, <code>.gov</code>.</p>
+  <ul>
+    <li>www.website.com</li>
+    <li>www.website.org</li>
+    <li>www.website.edu</li>
+  </ul>
+
+  <h3>Password Type</h3>
+  <p>
+    Looks like a single-line text field, but the value is obscured as
+    you type, displayed as asterisks or dots depending on the browser
+    and operating system.
+  </p>
+  <pre><code>&lt;input type="password" name="password"&gt;</code></pre>
+
+  <h3>Submit Type</h3>
+  <p>
+    Setting <code>type="submit"</code> renders a button that sends the
+    form data to the server. The default button text is "Submit" —
+    change it with the <code>value</code> attribute.
+  </p>
+  <pre><code>&lt;input type="submit" value="Create account"&gt;</code></pre>
+
+  <h2>Putting It Together</h2>
+  <pre><code>&lt;form action="" method=""&gt;
+  &lt;h2&gt;Create an account&lt;/h2&gt;
+  &lt;input type="email" name="email"&gt;
   &lt;input type="password" name="password"&gt;
-</code>
-</pre>
+  &lt;input type="submit" value="Create account"&gt;
+&lt;/form&gt;</code></pre>
+
+</main>
 </body>
 </html>
