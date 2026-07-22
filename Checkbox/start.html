@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML Checkboxes and Lists</title>
+
+<style>
+  :root{
+    --bg:#fafafa;
+    --text:#1f1f1f;
+    --muted:#6b6b6b;
+    --border:#e4e4e4;
+    --accent:#2b2b2b;
+    --code-bg:#f4f4f4;
+  }
+
+  *{
+    box-sizing:border-box;
+  }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height:1.65;
+  }
+
+  main{
+    max-width:720px;
+    margin:auto;
+    padding:60px 24px 100px;
+  }
+
+  h1{
+    font-size:2rem;
+    margin-bottom:8px;
+  }
+
+  .subtitle{
+    color:var(--muted);
+    margin-bottom:40px;
+  }
+
+  h2{
+    margin-top:45px;
+    border-bottom:1px solid var(--border);
+    padding-bottom:8px;
+  }
+
+  p{
+    margin-bottom:16px;
+  }
+
+  ul{
+    padding-left:20px;
+  }
+
+  li{
+    margin-bottom:8px;
+  }
+
+  code{
+    background:var(--code-bg);
+    padding:2px 5px;
+    border-radius:4px;
+    font-family:Consolas, monospace;
+  }
+
+  pre{
+    background:var(--code-bg);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:16px;
+    overflow-x:auto;
+  }
+
+  pre code{
+    background:none;
+    padding:0;
+  }
+</style>
+
+</head>
+<body>
+
+<main>
+
+<h1>Checkboxes and Lists</h1>
+<p class="subtitle">Notes on HTML Checkbox and Select List Elements</p>
+
+<p>
+Checkboxes and lists are HTML form controls used to collect user input.
+Checkboxes allow users to choose multiple options, while select lists let
+users choose one or more options from a drop-down menu.
+</p>
+
+<!-- Checkbox -->
+
+<h2>The Checkbox Input</h2>
+
+<p>
+A checkbox allows users to select one or more choices from a list.
+Unlike radio buttons, multiple checkboxes can be selected at the same time.
+</p>
+
+<pre><code>&lt;input type="checkbox" id="html" name="skills" value="HTML"&gt;
+&lt;label for="html"&gt;HTML&lt;/label&gt;
+
+&lt;input type="checkbox" id="css" name="skills" value="CSS"&gt;
+&lt;label for="css"&gt;CSS&lt;/label&gt;
+
+&lt;input type="checkbox" id="js" name="skills" value="JavaScript"&gt;
+&lt;label for="js"&gt;JavaScript&lt;/label&gt;
+</code></pre>
+
+<ul>
+<li>Uses <code>type="checkbox"</code>.</li>
+<li>Allows multiple selections.</li>
+<li>The <code>checked</code> attribute selects a checkbox by default.</li>
+</ul>
+
+<pre><code>&lt;input type="checkbox" checked&gt;</code></pre>
+
+<!-- Select List -->
+
+<h2>The Select List</h2>
+
+<p>
+The <code>&lt;select&gt;</code> element creates a drop-down list.
+Users can choose one option from the available choices.
+</p>
+
+<pre><code>&lt;label for="country"&gt;Country:&lt;/label&gt;
+
+&lt;select id="country" name="country"&gt;
+    &lt;option value="india"&gt;India&lt;/option&gt;
+    &lt;option value="usa"&gt;USA&lt;/option&gt;
+    &lt;option value="uk"&gt;United Kingdom&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+
+<ul>
+<li>Uses the <code>&lt;select&gt;</code> element.</li>
+<li>Each option is created using the <code>&lt;option&gt;</code> element.</li>
+<li>The <code>selected</code> attribute makes an option selected by default.</li>
+</ul>
+
+<pre><code>&lt;option value="india" selected&gt;India&lt;/option&gt;</code></pre>
+
+<!-- Multiple Select -->
+
+<h2>The Multiple Select List</h2>
+
+<p>
+The <code>multiple</code> attribute allows users to select more than one option.
+</p>
+
+<pre><code>&lt;select name="languages" multiple&gt;
+    &lt;option&gt;HTML&lt;/option&gt;
+    &lt;option&gt;CSS&lt;/option&gt;
+    &lt;option&gt;JavaScript&lt;/option&gt;
+    &lt;option&gt;React&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+
+<ul>
+<li>Allows multiple selections.</li>
+<li>Hold Ctrl (Windows) or Cmd (Mac) to select multiple options.</li>
+</ul>
+
+</main>
+
+</body>
+</html>
