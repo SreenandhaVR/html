@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sreenandha V R, Full Stack Developer</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1c1e21;
+      --muted: #5c6370;
+      --accent: #0f766e;
+      --border: #e2e4e8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 2rem 1.5rem 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      padding: 0;
+      margin: 0 0 1.5rem;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    hgroup h1 {
+      margin: 0 0 0.25rem;
+      font-size: 2rem;
+    }
+
+    hgroup p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      border-left: 3px solid var(--accent);
+      padding-left: 0.6rem;
+      margin-top: 2.5rem;
+    }
+
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    .stack span {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      color: var(--accent);
+    }
+
+    .projects {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .project {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+    }
+
+    .project h3 {
+      margin: 0 0 0.3rem;
+      font-size: 1.05rem;
+    }
+
+    .project p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    blockquote {
+      border-left: 3px solid var(--accent);
+      margin: 1.5rem 0;
+      padding: 0.5rem 0 0.5rem 1.25rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    footer {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="blog.html">Blog</a></li>        
+      </ul>
+    </nav>
+    <hgroup>
+      <h1>Sreenandha V R</h1>
+      <p>Full Stack Developer building web apps that solve real problems, one commit at a time.</p>
+    </hgroup>
+  </header>
+
+  <main>
+    <h2>About me</h2>
+    <p>I'm a full stack developer based in Thrissur, Kerala, with about two years of experience across internships and a startup I co-founded. I hold a Master of Vocation in Software Application Development from CUSAT, and I work mainly with React, Next.js, TypeScript, Node.js, and MongoDB, with hands-on experience deploying to AWS. I'm currently open to full stack roles as an immediate joiner, and always looking for the next interesting problem to build for.</p>
+
+    <div class="stack">
+      <span>React</span>
+      <span>Next.js</span>
+      <span>TypeScript</span>
+      <span>Node.js</span>
+      <span>Express</span>
+      <span>MongoDB</span>
+      <span>AWS</span>
+      <span>PostgreSQL</span>
+      <span>Docker</span>
+    </div>
+
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <h3>Kerides</h3>
+        <p>A Kerala tourism and travel booking platform built in Next.js — my primary project at Corestone Innovations.</p>
+      </div>
+      <div class="project">
+        <h3>Sahachari</h3>
+        <p>A rural e-commerce platform deployed on AWS for Chittur Panchayat, live on the Play Store with strong ratings and downloads.</p>
+      </div>
+      <div class="project">
+        <h3>Platesy</h3>
+        <p>A MERN-stack social food platform built during my time at iCodeBees, with 2,000+ users.</p>
+      </div>
+      <div class="project">
+        <h3>Ride or Wait</h3>
+        <p>An AI-powered public transportation companion for Kochi commuters, built during the Codex Nightline hackathon.</p>
+      </div>
+    </div>
+
+    <h2>Background</h2>
+    <p>I co-founded Corestone Innovations, which was incubated at CITIC CUSAT and later acquired by a Singapore-based company. That experience — going from an idea to something other people relied on — is what pulled me toward building software as a career rather than just a skill.</p>
+
+    <blockquote cite="https://en.wikiquote.org/wiki/Grace_Hopper">
+      <p>"The most dangerous phrase in the language is: 'We've always done it this way.'"</p>
+    </blockquote>
+    <p>&mdash; Grace Hopper, computer scientist and U.S. Navy Rear Admiral</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 by Sreenandha V R.</p>
+  </footer>
+</body>
+</html>
