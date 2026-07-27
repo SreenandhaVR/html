@@ -3,29 +3,346 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assesbility</title>
+  <title>Accessibility &amp; ARIA Basics Tutorial</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h2>Accesbility</h2>
-  <p>Accesibility means making message usable bt as many people as possible.While it mostly focuses on supporting people with disabilities,this practice benefits everyone.Even if you don't have a disability.We might be browsing on an mobile device with a smaller screen or using a slow internet connection.Accessible techniques can improve the experience for everyone in these situations as well.The core principle is simple:Everyone should be able to access to the web and in some places it's actually the law.The w3c has a <a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/" target="_blank">complete guide to accessibility laws and policies by country.</a>The legal requirements vary by region,but they usually apply to government agencies and sectors such as banking,telecommunications,libraries,educational institutions and transportation.The W#C has also created the Web Content Accessibility Guidelines,which outline the best practices for making web content accessible.This guide is extensive and has lot of detailed information,so I recommend starting hte WCAG At a Glance article.
-    <ul>
-      <li>Perceivable</li>
-      <li>Operable</li>
-      <li>Understandable</li>
-      <li>Robust</li>
-    </ul>
-    <h2>Accessible Rich Applications(ARIA) basics</h2>
+
+  <h1>Accessibility</h1>
+  <p>
+    Accessibility means making content usable by as many people as possible. While it mostly focuses on
+    supporting people with disabilities, this practice benefits everyone. Even if you don't have a disability,
+    you might be browsing on a mobile device with a smaller screen or using a slow internet connection.
+    Accessible techniques can improve the experience for everyone in these situations as well. The core
+    principle is simple: everyone should be able to access the web, and in some places it's actually the law.
+    The W3C has a
+    <a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/" target="_blank" rel="noopener">
+      complete guide to accessibility laws and policies by country</a> (opens in a new tab).
+    The legal requirements vary by region, but they usually apply to government agencies and sectors such as
+    banking, telecommunications, libraries, educational institutions, and transportation.
   </p>
-  <p>Informational websites tend to have a pretty straightforward structure because content is generally static.It doesn't change very oftern.As a result,informational websites are often more accessible than dynamic websites.Dynamic websites and web applications,however,tend to be more complex because the content changes more often.For example,on social media platforms,content is constantly updated in response to various user actions,like posting or liking a post.As the web became more advanced and interactive,new accessibility challenges popped up.Adding more complex features and dynamic content using Javascript libraries sometimes resulted in less semantic HTML code,make it harder for screen readers to understand.There is a technology that can help solve this problem called Accessible Rich Applications(ARIA).</p>
-  <p>Special set of attributes that provide additional semantics and improve accessibility.</p>
-  <h3>First Rule of ARIA use</h3>
+
+  <h2>WCAG: The Web Content Accessibility Guidelines</h2>
+  <p>
+    The W3C created the Web Content Accessibility Guidelines (WCAG), which outline best practices for making
+    web content accessible. The guidelines are extensive, so a good starting point is the
+    "WCAG At a Glance" summary. WCAG is organized around four core principles, often remembered by the acronym
+    <strong>POUR</strong>:
+  </p>
   <ul>
-    <li>If you can use a native HTML element,or attribute with the semantics and behavior you require already built in,instead of require already built in,instead of re purposing an element and adding an ARIA role,state or property to make it accessible then do so.</li>
-    <li>Used to determine whether we actually need it at all.According to W#C documentation,ARIA attributes are not used for accessibility unless they are necessary to support a feature that doesn't already have a semantic HTML element.</li>
-    <li>ARIA attributes are not used for accessibility unless they are necessary to support a feature that doesn't already have a semantic HTML element.</li>
-  <h2>Second Rule of ARIA</h2>
-  <li>Do not change native semantics,unless you really have to</li>
+    <li><strong>Perceivable</strong> — information and interface components must be presentable to users in
+      ways they can perceive (e.g., text alternatives for images, captions for video).</li>
+    <li><strong>Operable</strong> — interface components and navigation must be usable (e.g., everything works
+      with a keyboard, no content that flashes in a way that could cause seizures).</li>
+    <li><strong>Understandable</strong> — information and the operation of the interface must be
+      understandable (e.g., predictable behavior, clear labels and instructions).</li>
+    <li><strong>Robust</strong> — content must be robust enough to be interpreted reliably by a wide range of
+      tools, including assistive technologies (e.g., valid, semantic HTML).</li>
   </ul>
+
+  <hr>
+
+  <h1>Accessible Rich Internet Applications (ARIA) Basics</h1>
+
+  <h2>Why ARIA exists</h2>
+  <p>
+    Informational websites tend to have a straightforward structure because their content is mostly static —
+    it doesn't change very often. As a result, informational sites are often naturally more accessible than
+    dynamic ones. Dynamic websites and web applications tend to be more complex because their content changes
+    frequently. For example, on social media platforms, content is constantly updated in response to user
+    actions like posting or liking something.
+  </p>
+  <p>
+    As the web became more advanced and interactive, new accessibility challenges appeared. Adding complex,
+    dynamic features with JavaScript libraries sometimes resulted in less semantic HTML — markup that no
+    longer clearly describes what each part of the page <em>is</em> or <em>does</em>. This makes it harder for
+    screen readers and other assistive technologies to understand the page. ARIA (Accessible Rich Internet
+    Applications) is a technology built to help solve this problem.
+  </p>
+
+  <h2>What ARIA actually is</h2>
+  <p>
+    ARIA is a set of special HTML attributes that add extra semantic meaning, without changing how an element
+    looks or behaves visually. ARIA attributes fall into three categories: <strong>roles</strong>,
+    <strong>properties</strong>, and <strong>states</strong>. Each is covered in detail below.
+  </p>
+  <p>
+    Important: ARIA changes only how an element is announced or exposed to assistive technology (like a screen
+    reader). It does <strong>not</strong> add keyboard behavior, focus management, or styling on its own — you
+    still have to implement that with HTML and JavaScript/CSS.
+  </p>
+
+  <h2>The Five Rules of ARIA Use</h2>
+
+  <h3>Rule 1: Use native HTML whenever you can</h3>
+  <p>
+    If a native HTML element or attribute already has the semantics and behavior you need, use it instead of
+    repurposing another element and adding an ARIA role, state, or property to fake that behavior.
+  </p>
+  <pre><code>&lt;!-- Avoid this --&gt;
+&lt;div role="button" tabindex="0" onclick="submitForm()"&gt;Submit&lt;/div&gt;
+
+&lt;!-- Prefer this: a real button already has the role,
+     keyboard support, and focus behavior built in --&gt;
+&lt;button onclick="submitForm()"&gt;Submit&lt;/button&gt;</code></pre>
+
+  <h3>Rule 2: Don't change native semantics unless you really have to</h3>
+  <p>
+    Avoid overriding the built-in role of an element unless there is a strong reason. For example, don't put
+    <code>role="heading"</code> on a <code>&lt;div&gt;</code> when you could just use an
+    <code>&lt;h2&gt;</code>, and don't add a conflicting role to an element that already has clear native
+    semantics (like putting <code>role="list"</code> on a <code>&lt;button&gt;</code>).
+  </p>
+
+  <h3>Rule 3: All interactive ARIA controls must be usable with the keyboard</h3>
+  <p>
+    If you build a custom interactive widget using ARIA roles (for example, a custom dropdown with
+    <code>role="listbox"</code>), you are responsible for making it fully operable with the keyboard —
+    tabbing, arrow keys, Enter/Space, and Escape, wherever a sighted mouse user would expect them to work.
+  </p>
+
+  <h3>Rule 4: Don't use <code>role="presentation"</code> or <code>aria-hidden="true"</code> on a visible, focusable element</h3>
+  <p>
+    Doing so hides the element from assistive technology while leaving it visible and focusable to sighted
+    keyboard users, which creates a confusing "invisible but focusable" element for screen reader users who
+    tab onto it and hear nothing.
+  </p>
+
+  <h3>Rule 5: All interactive elements must have an accessible name</h3>
+  <p>
+    Buttons, links, form fields, and custom controls all need a text label that a screen reader can announce.
+    This can come from visible text, an <code>aria-label</code>, or an <code>aria-labelledby</code> reference.
+  </p>
+  <pre><code>&lt;!-- Icon-only button needs an accessible name --&gt;
+&lt;button aria-label="Close dialog"&gt;
+  &lt;svg aria-hidden="true"&gt;...&lt;/svg&gt;
+&lt;/button&gt;</code></pre>
+
+  <h2>Common ARIA landmark roles</h2>
+  <p>
+    Landmark roles help screen reader users jump directly to major sections of a page, similar to how a
+    sighted user visually scans a layout. Many of these now map to native HTML5 elements, so using the
+    element is usually preferred over adding the role explicitly.
+  </p>
+  <table border="1" cellpadding="6" cellspacing="0">
+    <thead>
+      <tr>
+        <th>ARIA role</th>
+        <th>Equivalent HTML5 element</th>
+        <th>Purpose</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><code>role="banner"</code></td><td><code>&lt;header&gt;</code></td><td>Site header, usually containing logo and title</td></tr>
+      <tr><td><code>role="navigation"</code></td><td><code>&lt;nav&gt;</code></td><td>Primary navigation links</td></tr>
+      <tr><td><code>role="main"</code></td><td><code>&lt;main&gt;</code></td><td>The main content of the page</td></tr>
+      <tr><td><code>role="complementary"</code></td><td><code>&lt;aside&gt;</code></td><td>Supporting content, like a sidebar</td></tr>
+      <tr><td><code>role="contentinfo"</code></td><td><code>&lt;footer&gt;</code></td><td>Footer info like copyright, contact links</td></tr>
+      <tr><td><code>role="search"</code></td><td><code>&lt;search&gt;</code> (or a form)</td><td>A search feature on the page</td></tr>
+    </tbody>
+  </table>
+
+  <h2>ARIA roles</h2>
+  <p>
+    A <strong>role</strong> tells assistive technology what an element <em>is</em> — its type or purpose —
+    so a screen reader can announce it correctly and users know what kind of interaction to expect. Roles
+    are set with the <code>role</code> attribute. Common roles include <code>button</code>,
+    <code>alert</code>, <code>navigation</code>, <code>dialog</code>, <code>tablist</code>, and
+    <code>listbox</code>.
+  </p>
+
+  <h3>Example: the <code>button</code> role</h3>
+  <p>
+    Sometimes you can't use a real <code>&lt;button&gt;</code> element — for example, a design system might
+    require a <code>&lt;span&gt;</code> or <code>&lt;div&gt;</code> to be styled as a clickable control. In
+    that case, <code>role="button"</code> tells assistive technology to treat it as a button. Remember: the
+    role alone doesn't make it keyboard-operable — you still need <code>tabindex="0"</code> so it can receive
+    keyboard focus, and a <code>keydown</code> handler so Enter and Space activate it, just like a native
+    button would.
+  </p>
+  <pre><code>&lt;!-- A div styled to look like a button, made accessible with role="button" --&gt;
+&lt;div
+  role="button"
+  tabindex="0"
+  onclick="likePost()"
+  onkeydown="if(event.key==='Enter'||event.key===' ') likePost()"&gt;
+  Like
+&lt;/div&gt;
+
+&lt;!-- Still better: just use a real button whenever you can (Rule 1) --&gt;
+&lt;button onclick="likePost()"&gt;Like&lt;/button&gt;</code></pre>
+
+  <h3>Other common roles</h3>
+  <ul>
+    <li><code>role="alert"</code> — marks urgent, time-sensitive content (like an error message) that should
+      be announced immediately.</li>
+    <li><code>role="dialog"</code> — marks a modal or popup window.</li>
+    <li><code>role="tab"</code> / <code>role="tablist"</code> / <code>role="tabpanel"</code> — used together
+      to build a custom tabbed interface.</li>
+    <li><code>role="navigation"</code> — marks a block of navigation links (native equivalent:
+      <code>&lt;nav&gt;</code>).</li>
+    <li><code>role="listbox"</code> / <code>role="option"</code> — used for a custom dropdown or select-like
+      widget.</li>
+  </ul>
+
+  <h2>ARIA properties</h2>
+  <p>
+    A <strong>property</strong> describes a characteristic of an element — something that's generally fixed
+    for as long as the element exists, rather than something that toggles back and forth during use (that's
+    what states are for, covered next). Common properties include <code>aria-label</code>,
+    <code>aria-labelledby</code>, <code>aria-describedby</code>, and <code>aria-required</code>.
+  </p>
+
+  <h3>The <code>aria-required</code> property</h3>
+  <p>
+    <code>aria-required="true"</code> tells assistive technology that a form field must be filled in before
+    the form can be submitted. This is important because a required field is often shown visually with just a
+    red asterisk (*) — something a screen reader user can't see. Note that if you're using the native HTML
+    <code>required</code> attribute, it already communicates this to assistive technology, so
+    <code>aria-required</code> is mainly useful for custom form widgets that don't use native
+    <code>&lt;input&gt;</code>/<code>&lt;select&gt;</code> elements.
+  </p>
+  <pre><code>&lt;label for="email"&gt;Email address *&lt;/label&gt;
+&lt;input
+  type="email"
+  id="email"
+  name="email"
+  aria-required="true"
+  required&gt;</code></pre>
+
+  <h3>Other common properties</h3>
+  <ul>
+    <li><code>aria-label="..."</code> — provides an accessible name when there's no visible text (e.g., an
+      icon-only button).</li>
+    <li><code>aria-labelledby="id"</code> — points to another element whose text should be used as the
+      accessible name.</li>
+    <li><code>aria-describedby="id"</code> — points to an element with extra descriptive text, like a hint or
+      an error message.</li>
+    <li><code>aria-placeholder="..."</code> — a hint shown when a custom (non-native) field is empty.</li>
+  </ul>
+
+  <h2>ARIA states</h2>
+  <p>
+    A <strong>state</strong> describes the current condition of an element — something that can change
+    dynamically as the user interacts with the page, and that assistive technology needs to be told about
+    each time it changes. Common states include <code>aria-checked</code>, <code>aria-expanded</code>,
+    <code>aria-hidden</code>, <code>aria-selected</code>, and <code>aria-disabled</code>.
+  </p>
+
+  <h3>The <code>aria-checked</code> attribute</h3>
+  <p>
+    <code>aria-checked</code> indicates whether a checkbox-like or radio-like control is currently checked.
+    It takes three possible values: <code>"true"</code> (checked), <code>"false"</code> (not checked), or
+    <code>"mixed"</code> (a partially-checked state, used for a checkbox that represents a mix of checked and
+    unchecked children — like a "select all" checkbox when only some items are selected). This attribute is
+    mainly needed on <em>custom</em> checkbox or radio widgets built with roles like
+    <code>role="checkbox"</code>; a native <code>&lt;input type="checkbox"&gt;</code> already communicates its
+    checked state automatically and doesn't need it.
+  </p>
+  <pre><code>&lt;!-- A custom checkbox built without a native input --&gt;
+&lt;div
+  role="checkbox"
+  aria-checked="false"
+  tabindex="0"
+  onclick="toggleCheckbox(this)"&gt;
+  Subscribe to newsletter
+&lt;/div&gt;
+
+&lt;script&gt;
+function toggleCheckbox(el) {
+  const isChecked = el.getAttribute('aria-checked') === 'true';
+  el.setAttribute('aria-checked', String(!isChecked));
+}
+&lt;/script&gt;</code></pre>
+
+  <h3>Other common states</h3>
+  <ul>
+    <li><code>aria-expanded="true|false"</code> — indicates whether a collapsible section (like an accordion
+      or dropdown) is currently open.</li>
+    <li><code>aria-hidden="true"</code> — hides purely decorative content (like a background icon) from
+      assistive technology. Never put this on a visible, focusable element (see Rule 4).</li>
+    <li><code>aria-selected="true|false"</code> — indicates whether an option (e.g., a tab or a listbox item)
+      is currently selected.</li>
+    <li><code>aria-disabled="true|false"</code> — indicates that an element is present but currently not
+      operable, while still keeping it visible and announced (unlike removing it or hiding it).</li>
+    <li><code>aria-live="polite|assertive"</code> — marks a region so that screen readers announce content
+      changes automatically, useful for things like toast notifications or form validation messages.</li>
+  </ul>
+  <pre><code>&lt;!-- A live region example: screen readers announce
+     this text whenever it changes, without needing focus --&gt;
+&lt;div aria-live="polite"&gt;
+  Your changes have been saved.
+&lt;/div&gt;</code></pre>
+
+  <h2>Additional Considerations</h2>
+  <p>
+    <strong>Why is a native <code>&lt;button&gt;</code> almost always better than a <code>&lt;div role="button"&gt;</code>?</strong>
+    A native button already comes with the correct role, keyboard support (Tab to focus, Enter/Space to
+    activate), and built-in focus styling, all provided automatically by the browser. A
+    <code>&lt;div role="button"&gt;</code> only gets the announced role — you have to manually add
+    <code>tabindex</code>, keydown handling, and focus styling yourself, and it's easy to miss one of these
+    and end up with a control that looks clickable but isn't fully usable.
+  </p>
+  <p>
+    <strong>What's the difference between an ARIA <em>state</em> and an ARIA <em>property</em>?</strong>
+    A property describes a characteristic of an element that generally stays fixed for as long as the element
+    exists, like <code>aria-required</code> marking a field as mandatory or <code>aria-label</code> giving it
+    a name. A state describes a condition that changes dynamically as the user interacts with the page, like
+    <code>aria-checked</code> toggling as a checkbox is clicked or <code>aria-expanded</code> flipping as a
+    dropdown opens and closes. Because states change, your JavaScript is responsible for updating them every
+    time the underlying condition changes.
+  </p>
+  <p>
+    <strong>Why is it dangerous to add <code>aria-hidden="true"</code> to a focusable element?</strong>
+    Doing so removes the element from the accessibility tree while leaving it visible and reachable by
+    keyboard Tab navigation. A screen reader user who tabs onto it will land on a control that announces
+    nothing at all, which is confusing and can make part of the interface seem broken or unusable.
+  </p>
+  <p>
+    <strong>Which native HTML element replaces <code>role="navigation"</code>?</strong>
+    The <code>&lt;nav&gt;</code> element already carries the navigation landmark role automatically, so it's
+    preferred over adding <code>role="navigation"</code> to a generic <code>&lt;div&gt;</code>.
+  </p>
+  <p>
+    <strong>What does <code>aria-live="polite"</code> do, and when would you use it?</strong>
+    It marks a region of the page so that whenever its content changes, a screen reader announces the new
+    content automatically, without needing the user to have focus on that region. "Polite" means the
+    announcement waits until the screen reader finishes whatever it's currently reading, rather than
+    interrupting immediately. This is useful for things like a "changes saved" confirmation message or a
+    form validation summary that appears after the user submits.
+  </p>
+  <p>
+    <strong>If you give a <code>&lt;div&gt;</code> <code>role="button"</code>, what two things do you still
+    need to add yourself to make it fully accessible?</strong>
+    You need <code>tabindex="0"</code> so the element can receive keyboard focus, since a plain
+    <code>&lt;div&gt;</code> isn't focusable by default. You also need a keydown handler that activates the
+    button when the user presses Enter or Space, since the browser doesn't wire that up automatically the
+    way it does for a real <code>&lt;button&gt;</code>.
+  </p>
+  <p>
+    <strong>Why doesn't a native <code>&lt;input type="checkbox"&gt;</code> need an
+    <code>aria-checked</code> attribute?</strong>
+    A native checkbox already exposes its checked state to assistive technology automatically through its
+    built-in <code>checked</code> property, so adding <code>aria-checked</code> on top would be redundant.
+    The attribute is really meant for custom widgets — elements built with <code>role="checkbox"</code> that
+    don't use a real <code>&lt;input&gt;</code> under the hood and so have no native checked state to report.
+  </p>
+  <p>
+    <strong>What does <code>aria-checked="mixed"</code> represent, and when would you use it?</strong>
+    It represents a partially-checked state, distinct from fully checked or fully unchecked. A common example
+    is a "select all" checkbox at the top of a list: if some but not all of the items below it are checked,
+    the "select all" checkbox is set to <code>aria-checked="mixed"</code> to communicate that in-between
+    status rather than misleadingly showing it as fully checked or fully unchecked.
+  </p>
+  <p>
+    <strong>When is <code>aria-required="true"</code> actually necessary, versus when the native
+    <code>required</code> attribute is enough?</strong>
+    If you're using a real HTML form field, like <code>&lt;input required&gt;</code>, the native
+    <code>required</code> attribute is already communicated to assistive technology on its own, so
+    <code>aria-required</code> isn't needed. It becomes necessary on custom form widgets that aren't built
+    from native <code>&lt;input&gt;</code>/<code>&lt;select&gt;</code> elements, since those have no built-in
+    way to signal "this field is mandatory" to a screen reader without it.
+  </p>
+
 </body>
 </html>
